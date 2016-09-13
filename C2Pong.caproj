@@ -9,8 +9,15 @@
     <app-id>com.dsh.c2pong</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>23300</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -35,7 +42,75 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="Jug1" sid="539338383483471">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="274673870725064">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="349757880693289">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="484700516835518" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Jug2" sid="659446029340394">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="500353660607687">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="633470583010049">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="706458754705459" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Ball" sid="390193385024936">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="328977116149287">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="192988069943697">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="965335657015973" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text1" sid="296180987791324">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="876699790550862">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Wall" sid="607775767834916">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="117197837229084">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="771876759967472" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
         <layout>Game.xml</layout>

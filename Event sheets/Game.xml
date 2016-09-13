@@ -2,5 +2,110 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
-    <events />
+    <events>
+        <event-group description="" sid="885993379342345" title="Bouncing">
+            <sub-events>
+                <event-block sid="389747705545325">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="633366051682570" type="Ball">
+                            <param id="0" name="Object">Jug1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="824497474611979" type="Ball">
+                            <param id="0" name="Object">Jug1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="996826959835601">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="408561213181036" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Jug1.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="534369520889994" type="Ball">
+                                    <param id="0" name="Angle">315</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="808443305590759">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="210469411560795" type="Ball">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Jug1.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="849115788114114" type="Ball">
+                                    <param id="0" name="Angle">45</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="855781685736461">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="607728495914394" type="Ball">
+                            <param id="0" name="Object">Jug2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="628788299628461" type="Ball">
+                            <param id="0" name="Object">Jug2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="570769358429779">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="205493410788907" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Jug2.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="874883268412311" type="Ball">
+                                    <param id="0" name="Angle">225</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="209299522630583">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="132160652631918" type="Ball">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Jug2.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="705915834427324" type="Ball">
+                                    <param id="0" name="Angle">135</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="223237943431288">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="828188845882778" type="Ball">
+                            <param id="0" name="Object">Wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="388592618473815" type="Ball">
+                            <param id="0" name="Object">Wall</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="115692777820299" title="Debug">
+            <sub-events>
+                <event-block sid="926137355345825">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
 </c2eventsheet>
