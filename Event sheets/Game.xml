@@ -3,6 +3,46 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <variable constant="0" name="score1" sid="904343700970198" static="0" type="number">0</variable>
+        <variable constant="0" name="score2" sid="473585739546717" static="0" type="number">0</variable>
+        <event-group description="" sid="733154964521163" title="Start">
+            <sub-events>
+                <event-block sid="863652599926155">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="115808602000216" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="298201110026315" type="Goal1">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="617931273515431" type="Goal2">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="917617452892407" type="Spawn1">
+                            <param id="0" name="X">LayoutWidth * 0.1</param>
+                            <param id="1" name="Y">LayoutHeight * 0.5</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="278090946627335" type="Spawn2">
+                            <param id="0" name="X">LayoutWidth * 0.9</param>
+                            <param id="1" name="Y">LayoutHeight * 0.5</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="885411215080193" type="Spawn1">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="976726721425066" type="Spawn2">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="460092189512934" type="Ball">
+                            <param id="0" name="Object">Spawn1</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="715125114254075" type="TiledBackground">
+                            <param id="0" name="Width">16</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="885993379342345" title="Bouncing">
             <sub-events>
                 <event-block sid="389747705545325">
@@ -96,6 +136,93 @@
                             <param id="0" name="Object">Wall</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="255081498627097" title="ScoreControl">
+            <sub-events>
+                <event-block sid="958420629574561">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="741715953711314" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="311898128729393" type="Text1">
+                            <param id="0" name="Text">score1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="672450001157287" type="Text2">
+                            <param id="0" name="Text">score2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="442943171273995">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="453942455001829" type="Ball">
+                            <param id="0" name="Object">Goal1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="392348817919947" type="Ball" />
+                        <action id="-10" name="Add to" sid="738281131174065" type="System">
+                            <param id="0" name="Variable">score2</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="715854886723738">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="215622331158128" type="System">
+                                    <param id="0" name="Variable">score2</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="988161568001516" type="Spawn2">
+                                    <param id="0" name="Object">Ball</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="717007972045880" type="Ball">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="498976833738297">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="562355499426439" type="Ball">
+                            <param id="0" name="Object">Goal2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="968306039704904" type="Ball" />
+                        <action id="-10" name="Add to" sid="830858897282329" type="System">
+                            <param id="0" name="Variable">score1</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="222061523589784">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="153514924451173" type="System">
+                                    <param id="0" name="Variable">score1</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="193598595731782" type="Spawn1">
+                                    <param id="0" name="Object">Ball</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="452298001123452" type="Ball">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
