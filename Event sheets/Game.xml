@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <variable constant="0" name="speed" sid="656091749282287" static="0" type="number">400</variable>
         <variable constant="0" name="score1" sid="904343700970198" static="0" type="number">0</variable>
         <variable constant="0" name="score2" sid="473585739546717" static="0" type="number">0</variable>
         <event-group description="" sid="733154964521163" title="Start">
@@ -39,6 +40,9 @@
                         <action id="-5" name="Set width" sid="715125114254075" type="TiledBackground">
                             <param id="0" name="Width">16</param>
                         </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="877582239009718" type="Ball">
+                            <param id="0" name="Angle">45</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -55,35 +59,11 @@
                         <action behavior="Bullet" id="4" name="Bounce off object" sid="824497474611979" type="Ball">
                             <param id="0" name="Object">Jug1</param>
                         </action>
+                        <action id="-10" name="Add to" sid="138489905514598" type="System">
+                            <param id="0" name="Variable">speed</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="996826959835601">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="408561213181036" type="Ball">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">Jug1.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="534369520889994" type="Ball">
-                                    <param id="0" name="Angle">315</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="808443305590759">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="210469411560795" type="Ball">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Jug1.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="849115788114114" type="Ball">
-                                    <param id="0" name="Angle">45</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="855781685736461">
                     <conditions>
@@ -95,35 +75,11 @@
                         <action behavior="Bullet" id="4" name="Bounce off object" sid="628788299628461" type="Ball">
                             <param id="0" name="Object">Jug2</param>
                         </action>
+                        <action id="-10" name="Add to" sid="989226712456295" type="System">
+                            <param id="0" name="Variable">speed</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="570769358429779">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="205493410788907" type="Ball">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">Jug2.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="874883268412311" type="Ball">
-                                    <param id="0" name="Angle">225</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="209299522630583">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="132160652631918" type="Ball">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Jug2.Y</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="705915834427324" type="Ball">
-                                    <param id="0" name="Angle">135</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="223237943431288">
                     <conditions>
@@ -152,6 +108,9 @@
                         <action id="0" name="Set text" sid="672450001157287" type="Text2">
                             <param id="0" name="Text">score2</param>
                         </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="690600136023335" type="Ball">
+                            <param id="0" name="Speed">speed</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="442943171273995">
@@ -177,13 +136,13 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="988161568001516" type="Spawn2">
+                                <action id="0" name="Spawn another object" sid="193598595731782" type="Spawn1">
                                     <param id="0" name="Object">Ball</param>
                                     <param id="1" name="Layer">0</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="717007972045880" type="Ball">
-                                    <param id="0" name="Angle">180</param>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="278829876801623" type="Ball">
+                                    <param id="0" name="Angle">45</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -212,18 +171,91 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Spawn another object" sid="193598595731782" type="Spawn1">
+                                <action id="0" name="Spawn another object" sid="988161568001516" type="Spawn2">
                                     <param id="0" name="Object">Ball</param>
                                     <param id="1" name="Layer">0</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="452298001123452" type="Ball">
-                                    <param id="0" name="Angle">0</param>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="709187011457713" type="Ball">
+                                    <param id="0" name="Angle">135</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-group description="" sid="674079427212905" title="EndOfGame">
+                    <sub-events>
+                        <event-block sid="284223479467414">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="157025040262423" title="Controls">
+            <sub-events>
+                <event-group description="" sid="799774650303901" title="KeyboardControl">
+                    <sub-events>
+                        <event-group description="" sid="658816921536058" title="KeyControlPj1">
+                            <sub-events>
+                                <event-block sid="155012550428131">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="767633291492468" type="Keyboard">
+                                            <param id="0" name="Key">87 (W)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="148982881564961" type="Jug1">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="238285403461562">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="984094831018413" type="Keyboard">
+                                            <param id="0" name="Key">83 (S)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="377926405541551" type="Jug1">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="648172137664275" title="KeyControlPj2">
+                            <sub-events>
+                                <event-block sid="683688237061722">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="799300468140960" type="Keyboard">
+                                            <param id="0" name="Key">38 (Up arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="813581116805322" type="Jug2">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="598004244974809">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="393551961639302" type="Keyboard">
+                                            <param id="0" name="Key">40 (Down arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="254997620707343" type="Jug2">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="331677702826817" title="TactileControl" />
             </sub-events>
         </event-group>
         <event-group description="" sid="115692777820299" title="Debug">
